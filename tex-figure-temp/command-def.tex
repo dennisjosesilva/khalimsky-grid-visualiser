@@ -1,0 +1,68 @@
+\usepackage{xargs}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommandx{\imgdomain}[1][1=f]{ D_{#1} }
+\newcommandx{\imgcodomain}[1][1=f]{ \mathbb{K}_{#1} }
+\newcommandx{\imgfamily}[2][1=\imgdomain,2=\imgcodomain]{\mathcal{F}(#1, #2)}
+\newcommandx{\llevelset}[2][1=\lambda,2=f]{X_{#1}(#2)}
+\newcommandx{\ulevelset}[2][1=\lambda,2=f]{X^{#1}(#2)}
+
+\newcommandx{\padj}[2][1=X,2=p]{\mathcal{A}(#1, #2)}
+\newcommandx{\cpadj}[2][1=X,2=p]{\mathcal{A}^{-1}(#1, #2)}
+\newcommandx{\padjF}[2][1=X,2=p]{\mathcal{A}_4(#1, #2)}
+\newcommandx{\padjE}[2][1=X,2=p]{\mathcal{A}_8(#1, #2)}
+
+\newcommandx{\iadj}[1][1=X]{\mathcal{A}(#1)}
+\newcommandx{\ciadj}[1][1=X]{\mathcal{A}^{-1}(#1)}
+\newcommandx{\iadjF}[1][1=X]{\mathcal{A}_4(#1)}
+\newcommandx{\iadjE}[1][1=X]{\mathcal{A}_8(#1)}
+
+\newcommandx{\adj}{\mathcal{A}}
+\newcommandx{\cadj}{\mathcal{A}^{-1}}
+\newcommandx{\adjF}{\mathcal{A}_4}
+\newcommandx{\adjE}{\mathcal{A}_8}
+
+\newcommandx{\CC}[1][1=\iadj]{CC(#1)}
+\newcommandx{\pCC}[2][1=\iadj, 2=p]{CC(#1, #2)}
+
+\newcommandx{\flatzone}[2][1=\lambda,2=f]{X(#1, #2)}
+\newcommandx{\flatzones}[2][1=f,2=\adj]{Fz(#1, #2)}
+\newcommandx{\rmax}[2][1=f,2=\adj]{RMAX(#1, #2)}
+\newcommandx{\rmin}[2][1=f,2=\adj]{RMIN(#1, #2)}
+
+\newcommandx{\UL}[2][1=f,2=\adj]{\mathcal{U}(#1, #2)}
+\newcommandx{\LL}[2][1=f,2=\adj]{\mathcal{L}(#1, #2)}
+
+\newcommandx{\CCX}{\mathcal{X}}
+\newcommandx{\CT}[1][1=\UL]{CT(#1)}
+\newcommandx{\SAT}[1][1=f]{SAT(#1)}
+\newcommandx{\tos}[1][1=f]{\mathfrak{S}(#1)}
+\newcommandx{\mtree}[1][1=f]{T(#1)}
+\newcommandx{\mnodes}[1][1=f]{\mathcal{N}(#1)}
+\newcommandx{\medges}[1][1=f]{E({\mnodes[#1]})}
+
+\newcommandx{\ctree}[1][1=f]{\mathcal{T}(#1)}
+\newcommandx{\SC}[2][1=\mtree,2=p]{\mathcal{SC}(#1, #2)}
+\newcommandx{\CNP}[1][1=N]{\hat{#1}}
+
+\newcommandx{\cctree}[1][1=\UL]{\widehat{\CT[#1]}}
+\newcommandx{\cmtree}[1][1=f]{\widehat{\mtree[#1]}}
+\newcommandx{\ctos}[1][1=f]{\widehat{\tos[#1]}}
+\newcommandx{\cmnodes}[1][1=f]{\widehat{\mnodes[#1]}}
+\newcommandx{\cmedges}[1][1=f]{\widehat{\medges[#1]}}
+\newcommandx{\poset}[1][1=\imgdomain]{\mathcal{P}(#1)}
+
+\newcommandx{\nmap}[1][1=N]{\gamma(#1)}
+\newcommandx{\map}{\gamma}
+\newcommandx{\func}[1]{\NFn{#1}}
+
+\newcommandx{\symbin}{SB}
+\newcommandx{\symbgrey}{SG}
+\newcommand{\pattern}[4]{ \boxed{\begin{smallmatrix} #1 & #2 \\ #3 & #4 \end{smallmatrix} } }
+\newcommand{\quadfamily}{\mathcal{Q}}
+\newcommand{\quadset}{\mathbb{Q}}
+
+\newcommandx{\qattr}[2][1=Q_i,2=X]{\kappa_{#1}(#2)}
+\newcommandx{\qmatch}[3][1=Q_i, 2=X, 3=p]{M_{#1,#2}(#3)}

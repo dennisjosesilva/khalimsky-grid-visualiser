@@ -1,0 +1,148 @@
+%-------------------------------- Lower Level Sets Component Tree Node -------------------
+\newarray\LCTNodeA
+\readarray{LCTNodeA}{%
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 0 & 0 & 0 & 0 & 0 & 0 &
+  1 & 0 & 0 & 0 & 0 & 0 & 0 &
+  1 & 0 & 0 & 0 & 0 & 0 & 0 &
+  1 & 0 & 0 & 0 & 0 & 0 & 0 &
+  1 & 0 & 0 & 0 & 0 & 0 & 0 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1
+}
+
+\newsavebox\LCTNodeABox
+\begin{lrbox}{\LCTNodeABox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{LCTNodeA} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\LCTNodeB
+\readarray{LCTNodeB}{%
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 0 & 0 & 0 &
+  1 & 0 & 0 & 1 & 0 & 0 & 0 &
+  1 & 0 & 1 & 1 & 0 & 0 & 0 &
+  1 & 1 & 1 & 1 & 0 & 0 & 0 &
+  1 & 0 & 0 & 1 & 0 & 0 & 0 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1
+}
+
+\newsavebox\LCTNodeBBox
+\begin{lrbox}{\LCTNodeBBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{LCTNodeB}\end{tikzpicture}
+\end{lrbox}
+
+
+\newarray\LCTNodeC
+\readarray{LCTNodeC}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 1 & 0 &
+  0 & 0 & 0 & 0 & 0 & 1 & 0 &
+  0 & 0 & 0 & 0 & 0 & 1 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newbox\LCTNodeCBox
+\begin{lrbox}{\LCTNodeCBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{LCTNodeC} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\LCTNodeR
+\readarray{LCTNodeR}{%
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1
+}
+
+\newsavebox\LCTNodeRBox
+\begin{lrbox}{\LCTNodeRBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{LCTNodeR} \end{tikzpicture}
+\end{lrbox}
+
+
+% ------------------------- Upper Level Set Component Tree Nodes -----------------------------------
+\newarray\UCTNodeA
+\readarray{UCTNodeA}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 1 & 1 & 0 & 0 & 0 & 0 &
+  0 & 1 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\UCTNodeABox
+\begin{lrbox}{\UCTNodeABox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{UCTNodeA} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\UCTNodeB
+\readarray{UCTNodeB}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 1 & 1 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\UCTNodeBBox
+\begin{lrbox}{\UCTNodeBBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{UCTNodeB} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\UCTNodeC
+\readarray{UCTNodeC}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 1 & 1 & 1 &
+  0 & 0 & 0 & 0 & 1 & 0 & 1 &
+  0 & 0 & 0 & 0 & 1 & 0 & 1 &
+  0 & 0 & 0 & 0 & 1 & 0 & 1 &
+  0 & 0 & 0 & 0 & 1 & 1 & 1 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\UCTNodeCBox
+\begin{lrbox}{\UCTNodeCBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{UCTNodeC} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\UCTNodeD
+\readarray{UCTNodeD}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 1 & 1 & 1 & 1 & 1 & 1 &
+  0 & 1 & 1 & 1 & 1 & 1 & 1 &
+  0 & 1 & 1 & 1 & 1 & 1 & 1 &
+  0 & 1 & 1 & 1 & 1 & 1 & 1 &
+  0 & 1 & 1 & 1 & 1 & 1 & 1 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\UCTNodeDBox
+\begin{lrbox}{\UCTNodeDBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{UCTNodeD} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\UCTNodeR
+\readarray{UCTNodeR}{%
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1
+}
+
+\newsavebox\UCTNodeRBox
+\begin{lrbox}{\UCTNodeRBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{UCTNodeR} \end{tikzpicture}
+\end{lrbox}
+

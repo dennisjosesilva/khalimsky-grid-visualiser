@@ -1,0 +1,263 @@
+%-------------------------------- Min-tree ----------------------------------------------
+\newarray\MinTreeNodeA
+\readarray{MinTreeNodeA}{%
+  3 & 3 & 3 & 3 & 3 & 3 & 3 &
+  3 & 0 & 0 & 0 & 0 & 0 & 0 &
+  3 & 0 & 0 & 0 & 0 & 0 & 0 &
+  3 & 0 & 0 & 0 & 0 & 0 & 0 &
+  3 & 0 & 0 & 0 & 0 & 0 & 0 &
+  3 & 0 & 0 & 0 & 0 & 0 & 0 &
+  3 & 3 & 3 & 3 & 3 & 3 & 3
+}
+
+\newsavebox\MinTreeNodeABox
+\begin{lrbox}{\MinTreeNodeABox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MinTreeNodeA} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\MinTreeNodeB
+\readarray{MinTreeNodeB}{%
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 3 & 3 & 3 & 0 & 0 & 0 &
+  1 & 0 & 0 & 3 & 0 & 0 & 0 &
+  1 & 0 & 3 & 3 & 0 & 0 & 0 &
+  1 & 3 & 3 & 3 & 0 & 0 & 0 &
+  1 & 0 & 0 & 3 & 0 & 0 & 0 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1
+}
+
+\newsavebox\MinTreeNodeBBox
+\begin{lrbox}{\MinTreeNodeBBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MinTreeNodeB}\end{tikzpicture}
+\end{lrbox}
+
+
+\newarray\MinTreeNodeC
+\readarray{MinTreeNodeC}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 3 & 0 &
+  0 & 0 & 0 & 0 & 0 & 3 & 0 &
+  0 & 0 & 0 & 0 & 0 & 3 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newbox\MinTreeNodeCBox
+\begin{lrbox}{\MinTreeNodeCBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MinTreeNodeC} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\MinTreeNodeR
+\readarray{MinTreeNodeR}{%
+  1 & 1 & 1 & 1 & 1 & 1 & 1 &
+  1 & 1 & 1 & 1 & 3 & 3 & 3 &
+  1 & 3 & 3 & 1 & 3 & 1 & 3 &
+  1 & 3 & 1 & 1 & 3 & 1 & 3 &
+  1 & 1 & 1 & 1 & 3 & 1 & 3 &
+  1 & 3 & 3 & 1 & 3 & 3 & 3 &
+  1 & 1 & 1 & 1 & 1 & 1 & 1
+}
+
+\newsavebox\MinTreeNodeRBox
+\begin{lrbox}{\MinTreeNodeRBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MinTreeNodeR} \end{tikzpicture}
+\end{lrbox}
+
+% ---------------------------------------- Max-tree Nodes -------------------------------------------------
+\newarray\MaxTreeNodeA
+\readarray{MaxTreeNodeA}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 3 & 3 & 0 & 0 & 0 & 0 &
+  0 & 3 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\MaxTreeNodeABox
+\begin{lrbox}{\MaxTreeNodeABox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MaxTreeNodeA} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\MaxTreeNodeB
+\readarray{MaxTreeNodeB}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 3 & 3 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\MaxTreeNodeBBox
+\begin{lrbox}{\MaxTreeNodeBBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MaxTreeNodeB} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\MaxTreeNodeC
+\readarray{MaxTreeNodeC}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 3 & 3 & 3 &
+  0 & 0 & 0 & 0 & 3 & 0 & 3 &
+  0 & 0 & 0 & 0 & 3 & 0 & 3 &
+  0 & 0 & 0 & 0 & 3 & 0 & 3 &
+  0 & 0 & 0 & 0 & 3 & 3 & 3 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\MaxTreeNodeCBox
+\begin{lrbox}{\MaxTreeNodeCBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MaxTreeNodeC} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\MaxTreeNodeD
+\readarray{MaxTreeNodeD}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 3 & 3 & 3 & 1 & 1 & 1 &
+  0 & 1 & 1 & 3 & 1 & 3 & 1 &
+  0 & 1 & 3 & 3 & 1 & 3 & 1 &
+  0 & 3 & 3 & 3 & 1 & 3 & 1 &
+  0 & 1 & 1 & 3 & 1 & 1 & 1 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\MaxTreeNodeDBox
+\begin{lrbox}{\MaxTreeNodeDBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MaxTreeNodeD} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\MaxTreeNodeR
+\readarray{MaxTreeNodeR}{%
+  3 & 3 & 3 & 3 & 3 & 3 & 3 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 3 & 3 & 3 & 3 & 3 & 3
+}
+
+\newsavebox\MaxTreeNodeRBox
+\begin{lrbox}{\MaxTreeNodeRBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MaxTreeNodeR} \end{tikzpicture}
+\end{lrbox}
+
+
+% --------------------------------- Tree of Shapes -----------------------------------------------------------
+\newarray\CTosNodeA
+\readarray{CTosNodeA}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 3 & 0 &
+  0 & 0 & 0 & 0 & 0 & 3 & 0 &
+  0 & 0 & 0 & 0 & 0 & 3 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newsavebox\CTosNodeABox
+\begin{lrbox}{\CTosNodeABox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{CTosNodeA} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\CTosNodeB
+\readarray{CTosNodeB}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 3 & 3 & 0 & 0 & 0 & 0 &
+  0 & 3 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newsavebox\CTosNodeBBox
+\begin{lrbox}{\CTosNodeBBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{CTosNodeB} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\CTosNodeC
+\readarray{CTosNodeC}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 3 & 3 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newsavebox\CTosNodeCBox
+\begin{lrbox}{\CTosNodeCBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{CTosNodeC} \end{tikzpicture}
+\end{lrbox}
+
+
+\newarray\CTosNodeD
+\readarray{CTosNodeD}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 3 & 3 & 3 &
+  0 & 0 & 0 & 0 & 3 & 1 & 3 &
+  0 & 0 & 0 & 0 & 3 & 1 & 3 &
+  0 & 0 & 0 & 0 & 3 & 1 & 3 &
+  0 & 0 & 0 & 0 & 3 & 3 & 3 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newsavebox\CTosNodeDBox
+\begin{lrbox}{\CTosNodeDBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{CTosNodeD} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\CTosNodeE
+\readarray{CTosNodeE}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 3 & 3 & 3 & 1 & 1 & 1 &
+  0 & 1 & 1 & 3 & 1 & 1 & 1 &
+  0 & 1 & 3 & 3 & 1 & 1 & 1 &
+  0 & 3 & 3 & 3 & 1 & 1 & 1 &
+  0 & 1 & 1 & 3 & 1 & 1 & 1 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newsavebox\CTosNodeEBox
+\begin{lrbox}{\CTosNodeEBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{CTosNodeE} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\CTosNodeR
+\readarray{CTosNodeR}{%
+  3 & 3 & 3 & 3 & 3 & 3 & 3 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 1 & 1 & 1 & 1 & 1 & 1 &
+  3 & 3 & 3 & 3 & 3 & 3 & 3
+}
+
+\newsavebox\CTosNodeRBox
+\begin{lrbox}{\CTosNodeRBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{CTosNodeR} \end{tikzpicture}
+\end{lrbox}
+
+
+% ----------------------- Only CNPs --------------------------------------------------------
+\newarray\MaxTreeNodeDOnlyCNPs
+\readarray{MaxTreeNodeDOnlyCNPs}{%
+  0 & 0 & 0 & 0 & 0 & 0 & 0 &
+  0 & 3 & 3 & 3 & 0 & 0 & 0 &
+  0 & 0 & 0 & 3 & 0 & 3 & 0 &
+  0 & 0 & 3 & 3 & 0 & 3 & 0 &
+  0 & 3 & 3 & 3 & 0 & 3 & 0 &
+  0 & 0 & 0 & 3 & 0 & 0 & 0 &
+  0 & 0 & 0 & 0 & 0 & 0 & 0 
+}
+
+\newsavebox\MaxTreeNodeDOnlyCNPsBox
+\begin{lrbox}{\MaxTreeNodeDOnlyCNPsBox}
+  \begin{tikzpicture}[scale=0.15] \drawBinaryImage{7}{7}{MaxTreeNodeDOnlyCNPs} \end{tikzpicture}
+\end{lrbox}

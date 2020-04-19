@@ -1,0 +1,110 @@
+\newarray\imgExample
+\readarray{imgExample}{%
+0 & 0 & 0 & 0 & 0 & 0 & 0 &
+0 & 4 & 4 & 4 & 7 & 7 & 7 &
+0 & 7 & 7 & 4 & 7 & 4 & 7 &
+0 & 7 & 4 & 4 & 7 & 4 & 7 &
+0 & 4 & 4 & 4 & 7 & 4 & 7 &
+0 & 7 & 7 & 4 & 7 & 7 & 7 &
+0 & 0 & 0 & 0 & 0 & 0 & 0}
+
+\newsavebox\imgExampleBox
+\begin{lrbox}{\imgExampleBox}
+	\begin{tikzpicture}[scale=0.60] \drawGrayImage{7}{7}{imgExample} \end{tikzpicture}
+\end{lrbox}
+
+\newarray\netherlandsflag
+\readarray{netherlandsflag}{%
+	3 & 3 & 3 & 3 & 3 & 3 &
+	3 & 3 & 3 & 3 & 3 & 3 &
+	0 & 0 & 0 & 0 & 0 & 0 &
+	0 & 0 & 0 & 0 & 0 & 0 &
+	2 & 2 & 2 & 2 & 2 & 2 & 
+	2 & 2 & 2 & 2 & 2 & 2
+}
+
+\newarray\netherlandsflagred
+\readarray{netherlandsflagred}{%
+	7 & 7 & 7 & 7 & 7 & 7 &
+	7 & 7 & 7 & 7 & 7 & 7 &
+	7 & 7 & 7 & 7 & 7 & 7 &
+	7 & 7 & 7 & 7 & 7 & 7 &
+	0 & 0 & 0 & 0 & 0 & 0 & 
+	0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newarray\netherlandsflaggreen
+\readarray{netherlandsflaggreen}{%
+	0 & 0 & 0 & 0 & 0 & 0 &
+	0 & 0 & 0 & 0 & 0 & 0 &
+	7 & 7 & 7 & 7 & 7 & 7 &
+	7 & 7 & 7 & 7 & 7 & 7 &
+	0 & 0 & 0 & 0 & 0 & 0 & 
+	0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newarray\netherlandsflagblue
+\readarray{netherlandsflagblue}{%
+	0 & 0 & 0 & 0 & 0 & 0 &
+	0 & 0 & 0 & 0 & 0 & 0 &
+	7 & 7 & 7 & 7 & 7 & 7 &
+	7 & 7 & 7 & 7 & 7 & 7 &
+	7 & 7 & 7 & 7 & 7 & 7 & 
+	7 & 7 & 7 & 7 & 7 & 7
+}
+
+
+\newarray\binimage
+\readarray{binimage}{%
+	0 & 0 & 0 & 0 & 0 & 0 & 0 &
+	0 & 0 & 0 & 0 & 0 & 0 & 0 &
+	0 & 1 & 1 & 0 & 0 & 0 & 0 &
+	0 & 1 & 0 & 0 & 0 & 0 & 0 &
+	0 & 0 & 0 & 0 & 0 & 0 & 0 &
+	0 & 0 & 0 & 0 & 0 & 0 & 0 &
+	0 & 0 & 0 & 0 & 0 & 0 & 0
+}
+
+\newarray\greyscale
+\readarray{greyscale}{%
+  0 & 4 & 7
+}
+
+\newarray\triangulation
+\readarray{triangulation}{%
+	 0 & 0 & 0 & 0 &
+	 0 & 0 & 1 & 0 &
+	 0 & 1 & 1 & 0 &
+	 0 & 1 & 1 & 0 &
+	 1 & 0 & 0 & 1 
+}
+
+\newarray\QThree
+\readarray{QThree}{%
+	0 & 1 &
+	1 & 1
+}
+
+\newarray\QThreePrime
+\readarray{QThreePrime}{%
+	1 & 0 &
+	1 & 1
+}
+
+\newarray\missedQuad
+\readarray{missedQuad}{%
+	1 & 0 &
+	1 & 0
+}
+
+\newarray\QuadTwo
+\readarray{QuadTwo}{%
+	1 & 1 &
+	0 & 0
+}
+
+\newarray\QuadOne
+\readarray{QuadOne}{%
+	1 & 0 & 
+	0 & 0
+}
