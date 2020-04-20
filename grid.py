@@ -67,8 +67,8 @@ def tikz_interpolation(img):
 		br = (x * 1.05 + 1.0), (H - (y * 1.05 - 1.0))
 		
 		if x % 2 == 0 and y % 2 == 0:
-			tikz += f"\t\\draw[blue,line width=0.5mm] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
-			tikz += f"\\node[blue] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
+			tikz += f"\t\\draw[black,line width=0.5mm] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+			tikz += f"\\node[black] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
 		else:
 			tikz += f"\t\\draw[] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
 			tikz += f"\\node[] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
@@ -98,8 +98,8 @@ def tikz_khalimsky_grid(img):
 			br = (tl[0] + 1.0, tl[1] - 1.0)
 
 			if x_ % 2 == 0 and y_ % 2 == 0:
-				tikz += f"\t\\draw[blue,line width=0.5mm] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
-				tikz += f"\\node[blue] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${F(y, x)}$}};\n"
+				tikz += f"\t\\draw[black,line width=0.5mm] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+				tikz += f"\\node[black] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${F(y, x)}$}};\n"
 			else:
 				tikz += f"\t\\draw ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
 				tikz += f"\\node at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${F(y, x)}$}};\n"
