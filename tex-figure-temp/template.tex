@@ -1,0 +1,30 @@
+\documentclass{article}
+
+\input{packages-def}
+%\input{command-def}
+%\input{functions}
+\input{tikz-def}
+%\input{tikz-array}
+% \input{env-def}
+
+\usepackage{interval}
+
+\usetikzlibrary{shapes.geometric, arrows, calc}
+
+\tikzstyle{Process} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, 
+	draw=black]
+
+\tikzstyle{InputOutput} =  [text centered]
+
+\tikzstyle{Arrow} =       [thick, ->, >=stealth]
+\tikzstyle{DashedArrow} = [thick, ->, >=stealth, dashed]
+
+\usepackage[active,tightpage]{preview}
+
+\begin{document}
+	\begin{preview}
+
+	\resizebox{\textwidth}{!}{\input{${tex_file}}}
+
+	\end{preview}
+\end{document}

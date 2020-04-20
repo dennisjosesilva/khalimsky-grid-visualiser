@@ -10,11 +10,11 @@ def interpolate(img, op):
 	for (x,y) in zip(xx.ravel(), yy.ravel()):
 		if y % 2 != 0:
 			if x % 2 != 0:
-				it[y, x] = np.max([it[y-1,x-1], it[y+1,x-1], it[y-1,x+1], it[y+1,x+1]])
+				it[y, x] = op([it[y-1,x-1], it[y+1,x-1], it[y-1,x+1], it[y+1,x+1]])
 			else:
-				it[y, x] = np.max([it[y-1, x], it[y+1, x]])
+				it[y, x] = op([it[y-1, x], it[y+1, x]])
 		elif x % 2 != 0:
-			it[y, x] = np.max([it[y, x-1], it[y, x+1]])
+			it[y, x] = op([it[y, x-1], it[y, x+1]])
 		else:
 			it[y, x] = it[y, x]
 
@@ -56,7 +56,26 @@ def immerse(img):
 
 def tikz_interpolation(img):
 	h, w = img.shape
-	pass
+	yy, xx = np.mgrid[0:h, 0:w]
+
+	tikz = "\\begin{tikzpicture}\n"
+
+	H, W = (h * 1.05 + 1.0), (w * 1.05 + 1.0)
+
+	for (x, y) in zip(xx.ravel(), yy.ravel()):
+		tl = (x * 1.05, H - (y * 1.05))
+		br = (x * 1.05 + 1.0), (H - (y * 1.05 - 1.0))
+		
+		if x % 2 == 0 and y % 2 == 0:
+			tikz += f"\t\\draw[blue] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+			tikz += f"\\node[blue] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
+		else:
+			tikz += f"\t\\draw[] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+			tikz += f"\\node[] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
+	
+	tikz += "\\end{tikzpicture}"
+
+	return tikz
 
 
 def tikz_khalimsky_grid(img):
@@ -67,28 +86,47 @@ def tikz_khalimsky_grid(img):
 
 	H, W = (h * 1.6 + 1.0), (w * 1.6 + 1.0)
 
+	F = lambda  x, y: f"[${img[y,x][0]}, {img[y,x][1]}$]"
+
 	for (x, y) in zip(xx.ravel(), yy.ravel()):
 		x_even = ((x % 2) == 0)
 		y_even = ((y % 2) == 0) 
 
 		if x_even and y_even:
-			x_, y_ = x / 2, y / 2
+			x_, y_ = x // 2, y // 2
 			tl = (x_ * 1.6, H - (y_ * 1.6))
 			br = (tl[0] + 1.0, tl[1] - 1.0)
 
-			tikz += f"\t\\draw ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
-			tikz += f"\\node at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
+			if x_ % 2 == 0 and y_ % 2 == 0:
+				tikz += f"\t\\draw[blue] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+				tikz += f"\\node[blue] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${F(y, x)}$}};\n"
+			else:
+				tikz += f"\t\\draw ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+				tikz += f"\\node at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${F(y, x)}$}};\n"
 
-		elif x_even and not y_even:
-			pass
+		elif x_even and not y_even: # y is odd and x is even, then vertical-rectangle
+			x_, y_ = x // 2, y // 2
+			tl = (x_ * 1.6, H - (y_ * 1.6))
+			br = (tl[0] + 1.0, tl[1] - 1.0)
+
+			tikz += f"\t\\draw ({tl[0]},{tl[1]-1.05}) rectangle ({br[0]},{br[1]-0.55});\n"
+			tikz += f"\\node[] at ({tl[0]+0.5}, {tl[1]-1.3}) {{\\small {F(y, x)}}};\n"
 
 		elif not x_even and y_even:
-			pass
+			x_, y_ = x // 2, y // 2
+			tl = (x_ * 1.6, H - (y_ * 1.6))
+			br = (tl[0] + 1.0, tl[1] - 1.0)
 
-		else:  # x and y are odd.
-			
+			tikz += f"\t\\draw ({tl[0]+1.05},{tl[1]}) rectangle ({br[0]+0.55},{br[1]});\n"
+			tikz += f"\\node[rotate=90] at ({tl[0]+1.35}, {tl[1]-0.5}) {{\\small {F(y, x)}}};\n"
 
 
+		else:  # x and y are odd. => circle
+			x_, y_ = x // 2, y // 2
+			center =  x_ * 1.6 + 1.3, H - ((y_ * 1.6) + 1.3)
+
+			tikz += f"\t\\draw ({center[0]},{center[1]}) circle (0.25); "
+			tikz += f"\\node[] at ({center[0]}, {center[1]}) {{\\tiny {F(y, x)}}};\n"
 
 	tikz += "\\end{tikzpicture}"
 	
