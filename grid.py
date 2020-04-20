@@ -1,7 +1,7 @@
 import numpy as np
 
 def interpolate(img, op):
-	w, h = img.shape
+	h, w = img.shape
 	it = np.zeros((2*h-1, 2*w-1), np.uint8)
 	
 	it[::2, ::2] = img
@@ -23,7 +23,7 @@ def interpolate(img, op):
 
 
 def immerse(img):
-	w, h = img.shape
+	h, w = img.shape
 	im = np.zeros((2*h-1, 2*w-1), tuple)
 	im[0::2, 0::2] = img
 
@@ -67,7 +67,7 @@ def tikz_interpolation(img):
 		br = (x * 1.05 + 1.0), (H - (y * 1.05 - 1.0))
 		
 		if x % 2 == 0 and y % 2 == 0:
-			tikz += f"\t\\draw[blue] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+			tikz += f"\t\\draw[blue,line width=0.5mm] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
 			tikz += f"\\node[blue] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
 		else:
 			tikz += f"\t\\draw[] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
@@ -86,7 +86,7 @@ def tikz_khalimsky_grid(img):
 
 	H, W = (h * 1.6 + 1.0), (w * 1.6 + 1.0)
 
-	F = lambda  x, y: f"[${img[y,x][0]}, {img[y,x][1]}$]"
+	F = lambda  y, x: f"[${img[y,x][0]}, {img[y,x][1]}$]"
 
 	for (x, y) in zip(xx.ravel(), yy.ravel()):
 		x_even = ((x % 2) == 0)
@@ -98,7 +98,7 @@ def tikz_khalimsky_grid(img):
 			br = (tl[0] + 1.0, tl[1] - 1.0)
 
 			if x_ % 2 == 0 and y_ % 2 == 0:
-				tikz += f"\t\\draw[blue] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+				tikz += f"\t\\draw[blue,line width=0.5mm] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
 				tikz += f"\\node[blue] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${F(y, x)}$}};\n"
 			else:
 				tikz += f"\t\\draw ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "

@@ -18,11 +18,10 @@ parser.add_argument("-s", "--step", help="Which khalimsky grid construction step
 
 args = parser.parse_args()
 
-
 f = np.loadtxt(args.input_image, dtype=np.uint8)
 
 tikz = None
-if args.step == "interpolate":
+if args.step == "interpolation":
 	it = interpolate(f, np.max)
 	tikz = tikz_interpolation(it)
 elif args.step == "immersion":
