@@ -1,4 +1,4 @@
-from grid import interpolate, immerse
+from grid import interpolate, immerse, tikz_khalimsky_grid
 import numpy as np
 
 f = np.array(
@@ -14,9 +14,8 @@ f = np.array(
 it = interpolate(f, None)
 im = immerse(it)
 
-print(f)
-print()
-print(it)
-print()
-print(im)
+# print(im.shape)
+tikz = tikz_khalimsky_grid(im)
 
+with open("grid.tex", "w") as f:
+	f.write(tikz)
