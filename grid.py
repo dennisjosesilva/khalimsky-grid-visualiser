@@ -131,3 +131,36 @@ def tikz_khalimsky_grid(img):
 	tikz += "\\end{tikzpicture}"
 	
 	return tikz
+
+
+def tikz_depth(img):
+	h, w = img.shape
+	yy, xx = np.mgrid[0:h, 0:w]
+
+	tikz = "\\begin{tikzpicture}\n"
+
+	H, W = (h * 1.05 + 1.0), (w * 1.05 + 1.0)
+
+	mn, mx = np.min(img), np.max(img)
+	grey = lambda y, x: int((1- ((img[y, x] - mn) / mx)) * 100)
+
+	for (x, y) in zip(xx.ravel(), yy.ravel()):
+		tl = (x * 1.05, H - (y * 1.05))
+		br = (x * 1.05 + 1.0), (H - (y * 1.05 - 1.0))		
+		
+		if y % 4 == 0 and x % 4 == 0:
+			tikz += f"\t\\draw[black, line width=1.0mm] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+		else:
+			tikz += f"\t\\draw[black] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+
+		tikz += f"\t\\fill[black!{grey(y,x)}] ({tl[0]+0.15},{tl[1]+0.15}) rectangle ({br[0]-0.15}, {br[1]-0.15}); "
+		
+		if grey(y,x) < 50:
+			tikz += f"\\node[black] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
+		else:
+			tikz += f"\\node[white] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
+	
+	tikz += "\\end{tikzpicture}"
+
+	return tikz
+
