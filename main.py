@@ -1,4 +1,4 @@
-from grid import interpolate, immerse, tikz_khalimsky_grid, tikz_interpolation, tikz_depth
+from grid import interpolate, immerse, tikz_khalimsky_grid, tikz_interpolation, tikz_depth, tikz_values
 from depth import computeOrderMap
 from threshold import grey_upper_level_set, grey_lower_level_set, intvl_upper_level_set, intvl_lower_level_set
 from threshold import tikz_level_set_khalimsky_grid, tikz_level_set
@@ -10,7 +10,7 @@ import os
 parser = argparse.ArgumentParser()
 
 steps = ["interpolation", "immersion", "depth", "thres_interpolation_upper", "thres_interpolation_lower",
-	"thres_immersion_upper", "thres_immersion_lower", "thres_depth_upper", "thres_depth_lower"]
+	"thres_immersion_upper", "thres_immersion_lower", "thres_depth_upper", "thres_depth_lower", "values"]
 
 parser.add_argument("-l", "--pdflatex", help="Make it run pdf_latex", action="store_true")
 parser.add_argument("-i", "--input_image", help="filename of the input image", type=str,
@@ -24,7 +24,8 @@ parser.add_argument("-s", "--step", help="Which khalimsky grid construction step
 	choices=steps)
 parser.add_argument("-v", "--thres_value", help="threshold value to be used when a threshold step is chosen.",
 	default=0, type=int)
-
+parser.add_argument("--save_depth_intermediate_steps", 
+	help="Saves the grid for every changing in depth during the compute depth algorithm.", action="store_true")
 args = parser.parse_args()
 
 f = np.loadtxt(args.input_image, dtype=np.uint8)
@@ -40,7 +41,8 @@ elif args.step == "immersion":
 elif args.step == "depth":
 	it = interpolate(f, np.max)
 	im = immerse(it)
-	(R, depth) = computeOrderMap(f, im)
+	(R, depth) = computeOrderMap(f, im, p_inf=(0,0),
+		should_save_depth_changes=args.save_depth_intermediate_steps)
 	tikz = tikz_depth(depth.astype(np.uint8))
 elif args.step == "thres_interpolation_upper":
 	it = interpolate(f, np.max)
@@ -72,6 +74,9 @@ elif args.step == "thres_depth_lower":
 	(R, depth) = computeOrderMap(f, im)
 	levelset = grey_lower_level_set(im, args.thres_value)
 	tikz = tikz_level_set(levelset)
+elif args.step == "values":
+	tikz = tikz_values(f)
+
 
 with open(args.tex_output, "w") as f:
  	f.write(tikz)
@@ -102,6 +107,5 @@ if args.pdflatex:
 		with open(f"tex-figure-temp/{gentex}", "w") as tt:
 			tt.write(result_tex)
 
-
-		os.system(f"cd tex-figure-temp; pdflatex -aux-directory=../aux_log -output-directory={pdfdir} -interaction=nonstopmode "
+		os.system(f"cd tex-figure-temp; pdflatex -output-directory={pdfdir} -interaction=nonstopmode "
 			f"-halt-on-error {gentex}; rm {gentex}")

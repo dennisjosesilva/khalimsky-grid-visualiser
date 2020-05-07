@@ -77,6 +77,25 @@ def tikz_interpolation(img):
 
 	return tikz
 
+def tikz_values(img):
+	h, w = img.shape
+	yy, xx = np.mgrid[0:h, 0:w]
+
+	tikz = "\\begin{tikzpicture}\n"
+
+	H, W = (h * 1.05 + 1.0), (w * 1.05 + 1.0)
+
+	for (x, y) in zip(xx.ravel(), yy.ravel()):
+		tl = (x * 1.05, H - (y * 1.05))
+		br = (x * 1.05 + 1.0), (H - (y * 1.05 - 1.0))
+		
+		tikz += f"\t\\draw[] ({tl[0]},{tl[1]}) rectangle ({br[0]}, {br[1]}); "
+		tikz += f"\\node[] at ({(tl[0]+br[0])/2}, {(tl[1]+br[1])/2}) {{${img[y, x]}$}};\n"
+
+	tikz += "\\end{tikzpicture}"
+
+	return tikz
+
 
 def tikz_khalimsky_grid(img):
 	h, w = img.shape 
