@@ -3,6 +3,9 @@ from depth import computeOrderMap
 from threshold import grey_upper_level_set, grey_lower_level_set, intvl_upper_level_set, intvl_lower_level_set
 from threshold import tikz_level_set_khalimsky_grid, tikz_level_set
 from string import Template
+
+from simple_grid import build_simple_grid, tikz_simple_khalimsky_grid, computeSimpleOrderMap, simple_tikz_depth
+
 import numpy as np
 import argparse 
 import os
@@ -10,7 +13,8 @@ import os
 parser = argparse.ArgumentParser()
 
 steps = ["interpolation", "immersion", "depth", "thres_interpolation_upper", "thres_interpolation_lower",
-	"thres_immersion_upper", "thres_immersion_lower", "thres_depth_upper", "thres_depth_lower", "values"]
+	"thres_immersion_upper", "thres_immersion_lower", "thres_depth_upper", "thres_depth_lower", "values",
+	"opt_immersion", "opt_depth"]
 
 parser.add_argument("-l", "--pdflatex", help="Make it run pdf_latex", action="store_true")
 parser.add_argument("-i", "--input_image", help="filename of the input image", type=str,
@@ -74,6 +78,13 @@ elif args.step == "thres_depth_lower":
 	(R, depth) = computeOrderMap(f, im)
 	levelset = grey_lower_level_set(im, args.thres_value)
 	tikz = tikz_level_set(levelset)
+elif args.step == "opt_immersion":
+	(dcon, grid) = build_simple_grid(f)
+	tikz = tikz_simple_khalimsky_grid(grid, dcon)
+elif args.step == "opt_depth":
+	(dcon, grid) = build_simple_grid(f)
+	(R, depth) = computeSimpleOrderMap(f, grid, dcon, should_save_depth_changes=args.save_depth_intermediate_steps)
+	tikz = simple_tikz_depth(depth.astype(np.uint8))
 elif args.step == "values":
 	tikz = tikz_values(f)
 
